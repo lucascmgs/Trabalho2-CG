@@ -7,15 +7,24 @@ class Point {
     public:
         double x;
         double y;
+        bool in;
+        float Color[3] = {0.0, 0.0, 1.0};
 
     Point(){
         this->x = 0;
         this->y = 0;
+        this->Color[2] = 1.0;
     }
 
     Point(double givenX, double givenY){
         this->x = givenX;
         this->y = givenY;
+    }
+
+    void SetColor(float red, float green, float blue){
+        this->Color[0] = red;
+        this->Color[1] = green;
+        this->Color[2] = blue;
     }
 
     int ZProdVec (const Point& operated){
