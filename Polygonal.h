@@ -41,6 +41,7 @@ class Polygonal {
                 if(second == this->Points.end()){
                     break;
                 }
+                
                 Segment currentSegment = Segment(*it, *second);
 
                 if(testSegment.Intercepts(currentSegment)){

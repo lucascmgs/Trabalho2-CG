@@ -27,7 +27,7 @@ class Point {
         this->Color[2] = blue;
     }
 
-    int ZProdVec (const Point& operated){
+    double ZProdVec (const Point& operated){
         return(this->x * operated.y - this->y * operated.x);
     }
 

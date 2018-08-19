@@ -23,10 +23,11 @@ void mouse (int button, int state, int givenX, int givenY)
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
     {
         Point result = Point((2.*givenX)/WINDOWSIZE - 1., -(2.*givenY)/WINDOWSIZE + 1.);
+
         if(!CurrentPolygonal.IsClosed()){
             list<Point>::iterator firstPoint = CurrentPolygonal.GetPoints().begin();
 
-            cout << result.Distance(*firstPoint) <<endl; 
+            cout << result.Distance(*firstPoint) << endl; 
             if(result.Distance(*firstPoint) < 0.1){
                 CurrentPolygonal.Add(*firstPoint);
                 CurrentPolygonal.Close();
@@ -36,6 +37,7 @@ void mouse (int button, int state, int givenX, int givenY)
             }
         } else {
             if(CurrentPolygonal.CheckInside(result)){
+                cout << "aeeee" << endl;
                 result.SetColor(0.0, 1.0, 0.0);
             } else {
                 result.SetColor(1.0, 0.0, 0.0);
@@ -74,7 +76,7 @@ void display() {
     glColor3f(1.0,1.0,1.0);
     glPointSize(8.0);
     
-    glLineWidth(2);
+    glLineWidth(3);
     
     CurrentPolygonal.PlotLines();
 
